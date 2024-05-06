@@ -114,4 +114,5 @@ export {
   getLoggedUserCart,
   addProductToCart,
   applyCupon,
+  clearUserCart,
 };

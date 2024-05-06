@@ -6,13 +6,13 @@ const couponRouter = express.Router();
 
 couponRouter
   .route("/")
-  .post(protectdRoutes, allowedTo("user"), coupon.createCoupon)
-  .get(coupon.getAllCoupons);
+  .post(protectdRoutes, allowedTo("admin"), coupon.createCoupon)
+  .get(protectdRoutes, allowedTo("admin"), coupon.getAllCoupons);
 
 couponRouter
   .route("/:id")
-  .put(protectdRoutes, allowedTo("user"), coupon.updateCoupon)
-  .delete(protectdRoutes, allowedTo("admin", "user"), coupon.deleteCoupon)
-  .get(coupon.getCoupon);
+  .put(protectdRoutes, allowedTo("admin"), coupon.updateCoupon)
+  .delete(protectdRoutes, allowedTo("admin"), coupon.deleteCoupon)
+  .get(protectdRoutes, allowedTo("admin"), coupon.getCoupon);
 
 export default couponRouter;

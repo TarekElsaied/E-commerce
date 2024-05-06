@@ -19,6 +19,7 @@ cartRouter
     protectdRoutes,
     allowedTo("admin", "user"),
     cart.removeProductFromCartItems
-  );
+  )
+  .delete(protectdRoutes, allowedTo("admin", "user"), cart.clearUserCart);
 
 export default cartRouter;
